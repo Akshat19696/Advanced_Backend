@@ -17,6 +17,10 @@ app.use(express.json({ limit: "16kb" })); //default 100 kb hoga agar nahi set ho
 app.use(express.urlencoded({ extended: true })); //it now use qs library to parse the url-encoded data if false
 //by default using query string library
 app.use(express.static("public"));
-app.use(cookieParser());//taki server cient ko cookie bhej sake usme crud laga sake
+app.use(cookieParser()); //taki server cient ko cookie bhej sake usme crud laga sake
 
+//routes import
+import userRouter from "./routes/user.routes.js";
+//routes declaration
+app.use("/api/v1/users", userRouter);
 export default app;
